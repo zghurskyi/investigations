@@ -1,13 +1,13 @@
-package com.oxymorus.investigationmicrometer;
+package com.oxymorus.reactive;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class InvestigationMicrometerApplication {
+public class Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(InvestigationMicrometerApplication.class, args);
+		SpringApplication.run(Application.class, args);
 	}
 
 }
