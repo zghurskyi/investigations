@@ -3,8 +3,12 @@ version: '3.3'
 services:
 
   grafana:
+    image: 'grafana/grafana:6.2.5'
     ports:
       - '3030:3000'
+    depends_on:
+      - prometheus
+      - prometheus_pushgateway
     volumes:
       - './grafana-datasource.yml:/etc/grafana/provisioning/datasources/grafana-datasource.yml'
       - './dashboards/grafana-dashboard.yml:/etc/grafana/provisioning/dashboards/grafana-dashboard.yml'
@@ -13,7 +17,6 @@ services:
       - './dashboards/processor-dashboard.json:/etc/grafana/dashboards/processor.json'
       - './dashboards/business.json:/etc/grafana/dashboards/business.json'
       - './dashboards/schedulers.json:/etc/grafana/dashboards/schedulers.json'
-    image: 'grafana/grafana:5.4.3'
     environment:
       GF_SECURITY_ADMIN_PASSWORD: secret
       GF_AUTH_ANONYMOUS_ENABLED: "true"
@@ -21,11 +24,13 @@ services:
       GF_AUTH_ANONYMOUS_ORG_ROLE: Admin
 
   prometheus:
+    image: 'prom/prometheus:v2.13.1'
     ports:
       - '9090:9090'
+    depends_on:
+      - prometheus_pushgateway
     volumes:
       - './prometheus.yml:/etc/prometheus/prometheus.yml'
-    image: 'prom/prometheus:v2.13.1'
 
   prometheus_pushgateway:
     image: prom/pushgateway:v1.0.0

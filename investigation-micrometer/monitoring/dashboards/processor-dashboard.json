@@ -56,7 +56,6 @@
       "bars": true,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "prometheus",
       "description": "Triggers when CPU utilization for the node is over chosen threshold",
       "fill": 0,
       "gridPos": {
@@ -186,6 +185,6 @@
   },
   "timezone": "",
   "title": "Processor",
-  "uid": "f79lTaIik",
+  "uid": "processor",
   "version": 1
 }

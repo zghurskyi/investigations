@@ -2,7 +2,6 @@
   "annotations": {
     "list": [
       {
-        "$$hashKey": "object:857",
         "builtIn": 1,
         "datasource": "-- Grafana --",
         "enable": true,
@@ -24,7 +23,6 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "prometheus",
       "fill": 0,
       "gridPos": {
         "h": 9,
@@ -111,7 +109,6 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "prometheus",
       "fill": 0,
       "gridPos": {
         "h": 9,
@@ -204,7 +201,6 @@
         "mode": "opacity"
       },
       "dataFormat": "tsbuckets",
-      "datasource": "prometheus",
       "gridPos": {
         "h": 9,
         "w": 12,
@@ -259,7 +255,6 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "prometheus",
       "fill": 0,
       "gridPos": {
         "h": 9,
@@ -379,7 +374,6 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "prometheus",
       "fill": 0,
       "gridPos": {
         "h": 9,
@@ -502,7 +496,6 @@
           "text": "All",
           "value": "$__all"
         },
-        "datasource": "prometheus",
         "hide": 0,
         "includeAll": true,
         "label": "Application",
@@ -525,7 +518,6 @@
           "text": "All",
           "value": "$__all"
         },
-        "datasource": "prometheus",
         "hide": 0,
         "includeAll": true,
         "label": "Cluster",
@@ -548,7 +540,6 @@
           "text": "All",
           "value": "$__all"
         },
-        "datasource": "prometheus",
         "hide": 0,
         "includeAll": true,
         "label": "Instance",
@@ -598,6 +589,6 @@
   },
   "timezone": "",
   "title": "Latency",
-  "uid": "UfvgtJSmk",
+  "uid": "latency",
   "version": 1
 }
