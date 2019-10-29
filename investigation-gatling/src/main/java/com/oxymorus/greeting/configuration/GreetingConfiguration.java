@@ -1,7 +1,7 @@
-package com.oxymorus.greetings.configuration;
+package com.oxymorus.greeting.configuration;
 
-import com.oxymorus.greetings.service.DefaultGreetingService;
-import com.oxymorus.greetings.service.GreetingService;
+import com.oxymorus.greeting.service.DefaultGreetingService;
+import com.oxymorus.greeting.service.GreetingService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

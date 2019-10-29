@@ -1,13 +1,13 @@
-package com.oxymorus.greetings;
+package com.oxymorus.greeting;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DemoApplication {
+public class GreetingApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(DemoApplication.class, args);
+        SpringApplication.run(GreetingApplication.class, args);
     }
 
 }

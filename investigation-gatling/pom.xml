@@ -15,9 +15,9 @@
 
 	<properties>
 		<java.version>1.8</java.version>
-		<gatling.version>3.2.1</gatling.version>
+		<gatling.version>3.3.0</gatling.version>
 		<gatling-plugin.version>3.0.3</gatling-plugin.version>
-		<scala-maven-plugin.version>4.2.0</scala-maven-plugin.version>
+		<scala-maven-plugin.version>4.2.4</scala-maven-plugin.version>
 		<gatling.skip>true</gatling.skip>
 	</properties>
 
@@ -93,7 +93,6 @@
 				<groupId>io.gatling</groupId>
 				<artifactId>gatling-maven-plugin</artifactId>
 				<version>${gatling-plugin.version}</version>
-
 				<executions>
 					<execution>
 						<goals>
