@@ -1,5 +1,4 @@
-package com.oxymorus.greeting
-
+import com.typesafe.config.ConfigFactory
 import io.gatling.core.Predef._
 import io.gatling.http.Predef._
 
@@ -7,15 +6,17 @@ import scala.concurrent.duration._
 
 class LoadScript extends Simulation {
 
-  val baseUrl = "http://localhost:8080"
-
-  val dataFile = "data.csv"
+  val config = ConfigFactory.load()
+  val baseUrl = config.getString("baseUrl")
+  val dataFile = config.getString("dataFile")
 
   val dataFeeder = ssv(dataFile).circular
 
   val httpConfig = http
     .baseUrl(baseUrl)
-    .acceptHeader("application/stream+json")
+    .contentTypeHeader("application/json")
+    .acceptHeader("application/json")
+    .shareConnections
 
   val basicLoad = scenario("LOAD_TEST")
     .feed(dataFeeder)
@@ -43,14 +44,13 @@ object BasicLoad {
             |  "greeting": "${greeting}"
             |}
             |""".stripMargin)).asJson
-        .check(status is 200,
-          jsonPath("$.id").saveAs("id")
-        )
+        .check(status is 200)
+        .check(jsonPath("$.id").saveAs("id"))
     )
     .exec(
       http("Get greeting by id")
         .get("/greetings")
-        .queryParam("user", "${id}")
+        .queryParam("id", "${id}")
         .check(status is 200)
     )
 }

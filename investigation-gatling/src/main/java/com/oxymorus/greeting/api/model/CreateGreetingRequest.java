@@ -1,8 +1,10 @@
 package com.oxymorus.greeting.api.model;
 
-import lombok.Value;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 
-@Value
+@Data
+@AllArgsConstructor
 public class CreateGreetingRequest {
     private String name;
     private String greeting;
