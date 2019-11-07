@@ -1,0 +1,36 @@
+version: '3.3'
+
+services:
+
+  grafana:
+    image: 'grafana/grafana:6.2.5'
+    ports:
+      - '3000:3000'
+    depends_on:
+      - prometheus
+      - prometheus_pushgateway
+    volumes:
+      - './grafana/grafana-datasource.yml:/etc/grafana/provisioning/datasources/grafana-datasource.yml'
+      - './grafana/dashboards/grafana-dashboard.yml:/etc/grafana/provisioning/dashboards/grafana-dashboard.yml'
+      - './grafana/dashboards/jvmgc-dashboard.json:/etc/grafana/dashboards/jvmgc.json'
+      - './grafana/dashboards/latency-dashboard.json:/etc/grafana/dashboards/latency.json'
+      - './grafana/dashboards/schedulers.json:/etc/grafana/dashboards/schedulers.json'
+    environment:
+      GF_SECURITY_ADMIN_PASSWORD: secret
+      GF_AUTH_ANONYMOUS_ENABLED: "true"
+      GF_AUTH_ANONYMOUS_ORG_NAME: Main Org.
+      GF_AUTH_ANONYMOUS_ORG_ROLE: Admin
+
+  prometheus:
+    image: 'prom/prometheus:v2.13.1'
+    ports:
+      - '9090:9090'
+    depends_on:
+      - prometheus_pushgateway
+    volumes:
+      - './prometheus/prometheus.yml:/etc/prometheus/prometheus.yml'
+
+  prometheus_pushgateway:
+    image: prom/pushgateway:v1.0.0
+    ports:
+      - "9091:9091"
