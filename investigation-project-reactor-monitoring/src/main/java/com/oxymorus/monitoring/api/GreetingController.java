@@ -26,6 +26,7 @@ public class GreetingController {
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     Mono<CreateGreetingResponse> createGreeting(@RequestBody CreateGreetingRequest request) {
         return service.createGreeting(request.getName(), request.getGreeting())
+                .metrics()
                 .map(CreateGreetingResponse::new)
                 .doOnSubscribe(subscription -> log.info("Create greeting '{}'", request));
     }
@@ -34,6 +35,7 @@ public class GreetingController {
     Mono<GetGreetingResponse> getGreeting(GetGreetingRequest request) {
 
         return service.findGreeting(request.getId())
+                .metrics()
                 .map(greeting -> new GetGreetingResponse(greeting.getName(), greeting.getGreeting()))
                 .doOnSubscribe(subscription -> log.info("Get greeting by id '{}'", request.getId()));
     }

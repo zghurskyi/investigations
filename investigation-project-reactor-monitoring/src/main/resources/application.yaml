@@ -4,3 +4,16 @@ management:
       exposure:
         include:
           - prometheus
+
+  metrics:
+    export:
+      prometheus:
+        pushgateway:
+          push-rate: 1s
+          enabled: true
+
+    distribution:
+      percentiles-histogram:
+        reactor:
+          onNext:
+            delay: true
