@@ -1,0 +1,26 @@
+version: '3.3'
+
+services:
+
+  mysql-db1:
+    image: mysql:5.7.27
+    container_name: mysql-db1
+    environment:
+      MYSQL_ROOT_PASSWORD: pwd1
+      MYSQL_DATABASE: db1
+    ports:
+      - "3306:3306"
+
+  mysql-db2:
+    image: mysql:5.7.27
+    container_name: mysql-db2
+    environment:
+      MYSQL_ROOT_PASSWORD: pwd2
+      MYSQL_DATABASE: db2
+    ports:
+      - "3307:3306"
+
+  admin:
+    image: adminer
+    ports:
+      - "8080:8080"
