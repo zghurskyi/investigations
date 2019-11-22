@@ -1,9 +1,7 @@
 package io.zghurskyi;
 
-import io.zghurskyi.model.CreateGreetingRequest;
-import io.zghurskyi.model.CreateGreetingResponse;
-import io.zghurskyi.model.GetGreetingRequest;
-import io.zghurskyi.model.GetGreetingResponse;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,4 +16,30 @@ public interface GreetingsClient {
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     GetGreetingResponse getGreeting(GetGreetingRequest request);
+
+    @Data
+    @AllArgsConstructor
+    class CreateGreetingRequest {
+        private String name;
+        private String greeting;
+    }
+
+    @Data
+    @AllArgsConstructor
+    class GetGreetingRequest {
+        private Long id;
+    }
+
+    @Data
+    @AllArgsConstructor
+    class CreateGreetingResponse {
+        private long id;
+    }
+
+    @Data
+    @AllArgsConstructor
+    class GetGreetingResponse {
+        private String name;
+        private String greeting;
+    }
 }
