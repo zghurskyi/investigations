@@ -1,10 +1,10 @@
 package com.oxymorus.messaging;
 
+import com.oxymorus.domain.User;
 import lombok.RequiredArgsConstructor;
 import org.reactivestreams.Publisher;
 import reactor.core.publisher.Flux;
 
-import com.oxymorus.domain.User;
 import java.time.Clock;
 
 @RequiredArgsConstructor
