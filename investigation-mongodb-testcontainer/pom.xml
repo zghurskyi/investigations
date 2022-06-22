@@ -11,7 +11,7 @@
         <java.version>1.8</java.version>
         <testcontainers.version>1.15.0-rc2</testcontainers.version>
         <junit.version>4.13</junit.version>
-        <mongo-java-driver.version>3.12.7</mongo-java-driver.version>
+        <mongo-java-driver.version>3.12.8</mongo-java-driver.version>
         <assertj-core.version>3.17.2</assertj-core.version>
     </properties>
 
